@@ -199,6 +199,9 @@ const fetchSuggestions = async (query) => {
   }
 };
 
+console.log('Weather API Key:', process.env.NEXT_PUBLIC_WEATHER_API_KEY);
+console.log('Rapid API Key:', process.env.NEXT_PUBLIC_RAPIDAPI_KEY);
+
 
   // Fetch weather data for randomly selected cities
   const fetchSuggestedCitiesWeather = async () => {
