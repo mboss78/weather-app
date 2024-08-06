@@ -1,0 +1,37 @@
+{
+  "settings": {
+    "title": "Settings",
+    "temperatureUnit": "Temperature Unit",
+    "windSpeedUnit": "Wind Speed Unit",
+    "theme": "Theme",
+    "switchTheme": "Switch to {{theme}} mode",
+    "language": "Language"
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "SkyCast",
+    "enterCity": "Enter city",
+    "getWeather": "Get Weather",
+    "temperature": "Temperature",
+    "weather": "Weather",
+    "humidity": "Humidity",
+    "windSpeed": "Wind Speed"
+  },
+  "about": {
+  "title": "About Us",
+  "intro": "Welcome to this weather app. The project provides accurate and up-to-date weather information for cities around the globe. Built using modern web technologies, it ensures a smooth and responsive experience. Here is a quick rundown of the main tools used: React, Next.js, and Axios.",
+  "reactTitle": "React",
+  "reactDesc": "React is the backbone of the user interface. It allows for the creation of reusable components like the weather display, city suggestions, and settings. With React, the state is efficiently managed, and everything is kept organized. Hooks like useState and useEffect handle the weather data, user input, and API requests seamlessly.",
+  "nextjsTitle": "Next.js",
+  "nextjsDesc": "Next.js powers the server-side rendering and routing of the app. It makes page transitions smooth and ensures that data is fetched before rendering, boosting performance and SEO. Next.js is used for setting up routes, handling server-side API requests, and optimizing loading times for components like weather info and city suggestions.",
+  "axiosTitle": "Axios",
+  "axiosDesc": "Axios is the tool for making HTTP requests to fetch weather data, city suggestions, and more. It simplifies making asynchronous requests and handling responses. In this project, Axios interacts with the Weather API for current and past weather data and the GeoDB Cities API for city suggestions based on user input. Axios makes data fetching clean and efficient, perfectly fitting into React's state management."
+  }
+
+}

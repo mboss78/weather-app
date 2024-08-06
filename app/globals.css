@@ -1,0 +1,376 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ece9e6, #ffffff);
+  color: #333;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+body.dark-mode {
+  background: #333;
+  color: #fff;
+}
+
+.app-layout {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  margin: 0 auto; 
+  padding: 20px;
+  flex-grow: 1;
+  max-width: 1200px; 
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.closed + .content {
+  margin-left: 0;
+}
+
+.weather-container {
+  text-align: center;
+  position: relative;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+body.dark-mode .weather-container {
+  background: rgba(50, 50, 50, 0.9);
+  color: #fff;
+}
+
+.input-and-suggestions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+}
+
+.city-input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  position: relative;
+}
+
+body.dark-mode .city-input {
+  background: #666;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.fetch-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.fetch-button:hover {
+  background-color: #0056b3;
+}
+
+.weather-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.weather-info {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  color: #333;
+  max-width: 500px;
+}
+
+body.dark-mode .weather-info {
+  background-color: #444;
+  color: #fff;
+}
+
+.suggested-cities-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+
+.suggested-city {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s;
+  width: 100%;  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suggested-city:hover {
+  transform: scale(1.05);
+}
+
+body.dark-mode .suggested-city {
+  background-color: #444;
+  color: #fff;
+}
+
+.suggested-city img {
+  margin-left: 10px;
+}
+
+.past-weather-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.past-weather {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  max-width: 250px;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+body.dark-mode .past-weather {
+  background-color: #444;
+  color: #fff;
+}
+
+.past-weather-details {
+  display: none;
+}
+
+.past-weather-container:hover .past-weather-details {
+  display: block;
+}
+
+.past-weather-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.scroll-button {
+  position: fixed;
+  bottom: 20px;
+  right: 13px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(130, 118, 118);
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+  background-color: rgb(55, 55, 55);
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  width: calc(50% -15px);
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
+}
+
+
+body.dark-mode .suggestions-list {
+  background-color: #666;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.suggestions-list li {
+  text-align: left;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+body.dark-mode .suggestions-list li:hover {
+  background-color: #555;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+.small-spinner {
+  border-width: 4px;
+  width: 30px;
+  height: 30px;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.settings-container {
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .settings-container {
+  background: rgba(50, 50, 50, 0.9);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.settings-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.settings-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: rgba(240, 240, 240, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+  cursor: pointer;
+}
+
+.settings-group:hover {
+  transform: scale(1.02);
+  background-color: rgba(220, 220, 220, 0.9);
+}
+
+body.dark-mode .settings-group {
+  background: rgba(70, 70, 70, 0.8);
+}
+
+body.dark-mode .settings-group:hover {
+  background-color: rgba(90, 90, 90, 0.9);
+}
+
+.settings-group label {
+  flex-grow: 1;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+.settings-group select,
+.settings-group input[type="checkbox"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+body.dark-mode .settings-group select,
+body.dark-mode .settings-group input[type="checkbox"] {
+  border: 1px solid #555;
+  background: #444;
+  color: #fff;
+}
+
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.top-nav button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+.top-nav button:hover {
+  background-color: #0056b3;
+}
+
+body.dark-mode .top-nav button {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-mode .top-nav button:hover {
+  background-color: #666;
+}

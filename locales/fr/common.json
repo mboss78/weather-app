@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "title": "Paramètres",
+    "temperatureUnit": "Unité de température",
+    "windSpeedUnit": "Unité de vitesse du vent",
+    "theme": "Thème",
+    "switchTheme": "Passer au mode {{theme}}",
+    "language": "Langue"
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "settings": "Paramètres"
+  },
+  "home": {
+    "title": "SkyCast",
+    "enterCity": "Entrez la ville",
+    "getWeather": "Obtenir la météo",
+    "temperature": "Température",
+    "weather": "Météo",
+    "humidity": "Humidité",
+    "windSpeed": "Vitesse du vent",
+    "goToGraph": "Aller au graphique",
+    "cityNotFound": "Ville non trouvée"
+  },
+  "about": {
+    "title": "À propos de nous",
+    "intro": "Bienvenue dans cette application météo. Le projet fournit des informations météorologiques précises et à jour pour les villes du monde entier. Construit en utilisant des technologies web modernes, il assure une expérience fluide et réactive. Voici un aperçu des principaux outils utilisés : React, Next.js et Axios.",
+    "reactTitle": "React",
+    "reactDesc": "React est l'épine dorsale de l'interface utilisateur. Il permet de créer des composants réutilisables comme l'affichage de la météo, les suggestions de villes et les paramètres. Avec React, l'état est géré efficacement et tout est organisé. Les hooks comme useState et useEffect gèrent les données météorologiques, les entrées utilisateur et les requêtes API de manière transparente.",
+    "nextjsTitle": "Next.js",
+    "nextjsDesc": "Next.js alimente le rendu côté serveur et le routage de l'application. Il rend les transitions de page fluides et garantit que les données sont récupérées avant le rendu, améliorant ainsi les performances et le référencement. Next.js est utilisé pour configurer les routes, gérer les requêtes API côté serveur et optimiser les temps de chargement des composants comme les informations météorologiques et les suggestions de villes.",
+    "axiosTitle": "Axios",
+    "axiosDesc": "Axios est l'outil utilisé pour effectuer des requêtes HTTP afin de récupérer des données météorologiques, des suggestions de villes et plus encore. Il simplifie la réalisation de requêtes asynchrones et la gestion des réponses. Dans ce projet, Axios interagit avec l'API Météo pour les données météorologiques actuelles et passées, ainsi qu'avec l'API GeoDB Cities pour les suggestions de villes basées sur les entrées utilisateur. Axios rend la récupération des données propre et efficace, s'intégrant parfaitement à la gestion de l'état de React."
+  }
+}
